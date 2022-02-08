@@ -76,8 +76,58 @@
                     <td>$20</td> 
             </tr>
         </table>
-        <br>
 
+        <hr>
+
+        <h4>Linear operations Algorithm</h4>
+        <blockquote cite=https://en.wikipedia.org/wiki/Linear_programming>Linear programming (LP, also called linear optimization) is a method to achieve the best outcome
+           (such as maximum profit or lowest cost) in a mathematical model whose requirements are represented 
+           by linear relationships. Linear programming is a special case of mathematical programming (also known 
+           as mathematical optimization).</blockquote ><br>
+        <a href=https://en.wikipedia.org/wiki/Linear_programming>Click here to find about the below algorithm</a><br>
+        <br>
+        <pre>
+            struct point2d {
+                ftype x, y;
+                point2d() {}
+                point2d(ftype x, ftype y): x(x), y(y) {}
+                point2d& operator+=(const point2d &t) {
+                    x += t.x;
+                    y += t.y;
+                    return *this;
+                }
+                point2d& operator-=(const point2d &t) {
+                    x -= t.x;
+                    y -= t.y;
+                    return *this;
+                }
+                point2d& operator*=(ftype t) {
+                    x *= t;
+                    y *= t;
+                    return *this;
+                }
+                point2d& operator/=(ftype t) {
+                    x /= t;
+                    y /= t;
+                    return *this;
+                }
+                point2d operator+(const point2d &t) const {
+                    return point2d(*this) += t;
+                }
+                point2d operator-(const point2d &t) const {
+                    return point2d(*this) -= t;
+                }
+                point2d operator*(ftype t) const {
+                    return point2d(*this) *= t;
+                }
+                point2d operator/(ftype t) const {
+                    return point2d(*this) /= t;
+                }
+            };
+            point2d operator*(ftype a, point2d b) {
+                return b * a;
+            }
+        </pre>
         <a href=https://htmlpreview.github.io/?https://github.com/44-563-Web-Apps-S22/webapps-s22-assignment-3-yogi4297/blob/main/aboutme.html>AboutMe</a>
         
         
