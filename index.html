@@ -4,6 +4,8 @@
         <title>Assignment 3</title>
     </head>
     <body>
+        <a href=https://htmlpreview.github.io/?https://github.com/44-563-Web-Apps-S22/webapps-s22-assignment-3-yogi4297/blob/main/bonus.html>Bonus Page</a>
+
         <h1>YogaNarsimha Reddy Peddireddy</h1>
         <h4>Kurnool</h4>
         <p>The original name of Kurnool is found in historical records as <b>Kandanavolu or Kandanolu</b>.
@@ -79,54 +81,38 @@
 
         <hr>
 
-        <h4>Linear operations Algorithm</h4>
-        <blockquote cite=https://en.wikipedia.org/wiki/Linear_programming>Linear programming (LP, also called linear optimization) is a method to achieve the best outcome
-           (such as maximum profit or lowest cost) in a mathematical model whose requirements are represented 
-           by linear relationships. Linear programming is a special case of mathematical programming (also known 
-           as mathematical optimization).</blockquote ><br>
-        <a href=https://en.wikipedia.org/wiki/Linear_programming>Click here to find about the below algorithm</a><br>
+        <h4>Breadth-first search</h4>
+        <blockquote cite=https://en.wikipedia.org/wiki/Breadth-first_search>Breadth-first search (BFS) is an algorithm for
+             searching a tree data structure for a node that satisfies a given property.
+              It starts at the tree root and explores all nodes at the present depth prior to moving
+               on to the nodes at the next depth level. Extra memory, usually a queue, is needed to
+                keep track of the child nodes that were encountered but not yet explored.</blockquote ><br>
+        <a href=https://en.wikipedia.org/wiki/Breadth-first_search>Click here to find about the below algorithm</a><br>
         <br>
         <pre>
-            struct point2d {
-                ftype x, y;
-                point2d() {}
-                point2d(ftype x, ftype y): x(x), y(y) {}
-                point2d& operator+=(const point2d &t) {
-                    x += t.x;
-                    y += t.y;
-                    return *this;
+            vector<vector<int>> adj;  // adjacency list representation
+                int n; // number of nodes
+                int s; // source vertex
+                
+                queue<int> q;
+                vector<bool> used(n);
+                vector<int> d(n), p(n);
+                
+                q.push(s);
+                used[s] = true;
+                p[s] = -1;
+                while (!q.empty()) {
+                    int v = q.front();
+                    q.pop();
+                    for (int u : adj[v]) {
+                        if (!used[u]) {
+                            used[u] = true;
+                            q.push(u);
+                            d[u] = d[v] + 1;
+                            p[u] = v;
+                        }
+                    }
                 }
-                point2d& operator-=(const point2d &t) {
-                    x -= t.x;
-                    y -= t.y;
-                    return *this;
-                }
-                point2d& operator*=(ftype t) {
-                    x *= t;
-                    y *= t;
-                    return *this;
-                }
-                point2d& operator/=(ftype t) {
-                    x /= t;
-                    y /= t;
-                    return *this;
-                }
-                point2d operator+(const point2d &t) const {
-                    return point2d(*this) += t;
-                }
-                point2d operator-(const point2d &t) const {
-                    return point2d(*this) -= t;
-                }
-                point2d operator*(ftype t) const {
-                    return point2d(*this) *= t;
-                }
-                point2d operator/(ftype t) const {
-                    return point2d(*this) /= t;
-                }
-            };
-            point2d operator*(ftype a, point2d b) {
-                return b * a;
-            }
         </pre>
         <a href=https://htmlpreview.github.io/?https://github.com/44-563-Web-Apps-S22/webapps-s22-assignment-3-yogi4297/blob/main/aboutme.html>AboutMe</a>
         
